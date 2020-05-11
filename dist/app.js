@@ -4,8 +4,8 @@ let fs = require("fs");
 
 // 创建服务器对象
 let app = http.createServer((req,res)=>{
-    let str = req.url=="/"?"/Lining/zhuye.html":"/Lining"+req.url;
-    let html = fs.readFileSync("./dist"+str);
+    let str = req.url=="/"?"/zhuye.html":req.url;
+    let html = fs.readFileSync("./Lining"+str);
     res.write(html);
     res.end();
 });

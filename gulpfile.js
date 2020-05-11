@@ -34,7 +34,7 @@ gulp.task("watchall",async ()=>{
         .pipe(gulp.dest("./dist/Lining/css"));
     });
     // 压缩js
-    gulp.watch([jsSrc+"/index.js",jsSrc+"jquery-3.2.1.min.js"],async ()=>{
+    gulp.watch([jsSrc+"/zhuye.js",jsSrc+"jquery-3.2.1.min.js"],async ()=>{
         gulp.src("./src/js/*.js")
         .pipe(babel({
             presets: ['@babel/env']
@@ -54,7 +54,7 @@ gulp.task("watchall",async ()=>{
 // 启动服务
 gulp.task('connect',function() {
     connect.server({
-        root: './dist', //root表示启动的服务器根目录，等同于phpstudy 的www目录
+        root: './dist/Lining', //root表示启动的服务器根目录，等同于phpstudy 的www目录
         livereload:true
     })
 });
