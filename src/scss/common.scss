@@ -27,7 +27,7 @@
 #header-nav {
     background-color: #000000;
 }
-
+hgoodsPic
 #header-top,
 #header-nav {
     display: flex;
@@ -218,7 +218,13 @@
 
 // 弹出层
 .sub_ug{
-
+    width: 100%;
+    background-color: #f6f6f6;
+    z-index: -10;
+    height: 386px;
+    position: absolute;
+    top: 50px;
+    left: 0;
 }
 
 #header-nav-right {
@@ -664,6 +670,10 @@
     width: 166px;
     height: 166px;
     margin: 0 auto;
+}
+.hgoodsPic>a>img{
+    height: 100%;
+    width: 100%;
 }
 .hgoodsPic_list{
     width: 133px;

@@ -132,44 +132,7 @@
                 <div class="xiangqingye_info_dotted"></div>
                 <div class="xiangqingye_info_jieshao">
                     <div id="xiangqingye_goodsinfo">
-                        <h1 id="xiangqingye_goodsinfo_goodsname">【华晨宇心选】女子经典休闲鞋</h1>
-                        <div id="xiangqingye_goodsinfo_goodspromotion">
-                            <a href="#">青年潮流志，此商品满269减20，满369减30，满499减50，点亮可立减80！详戳</a>
-                        </div>
-                        <div id="xiangqingye_goodsinfo_draw">参与抽奖，可再减5元</div>
-                        <div id="xiangqingye_goodsinfo_pinkage">
-                            <a href="#">全场满99包邮，部分地区除外</a>
-                        </div>
-                        <div id="xiangqingye_bargin_starting">
-                            <div>特价商品</div>
-                            <div id="xiangqingye_activity_down">
-                                距离结束：<span>1天22小时</span><span>请尽快购买！</span>
-                            </div>
-                        </div>
-                        <div class="xiangqingye_bgc_gray">
-                            <span id="xiangqingye_goods_coding" class="font-gray">
-                                <span class="t">商品编码：</span>
-                                <span class="v">AGCP128-4</span>
-                            </span>
-                            <span id="xiangqingye_goods_price">
-                                <div id="xiangqingye_goods_originalPrice" class="font-gray">
-                                    <span class="t">吊牌价：</span>
-                                    <span class="v">￥399.00</span>
-                                </div>
-                                <div id="xiangqingye_goods_currentPrice" class="font-gray">
-                                    <span class="t">销售价：</span>
-                                    <span class="v">￥399.00</span>
-                                </div>
-                                <div id="xiangqingye_goods_specialPrice" class="font-gray">
-                                    <span class="t">特价：</span>
-                                    <span class="v">
-                                        <span>￥</span>
-                                        <span>198</span>
-                                        <span> 潮流价</span>
-                                    </span>
-                                </div>
-                            </span>
-                        </div>
+                        
                     </div>
                     <div id="xiangqingye_choiceaarea">
                         <span class="xiangqingye_choiceaarea_title">选择颜色:</span>
@@ -393,30 +356,7 @@
                 </div>
                 <div class="PD_description">
                     <ul id="PD_description_spec">
-                        <li>
-                            <span class="t">鞋底:</span>
-                            <span class="v">橡胶+EVA</span>
-                        </li>
-                        <li>
-                            <span class="t">鞋底:</span>
-                            <span class="v">橡胶+EVA</span>
-                        </li>
-                        <li>
-                            <span class="t">鞋底:</span>
-                            <span class="v">橡胶+EVA</span>
-                        </li>
-                        <li>
-                            <span class="t">鞋底:</span>
-                            <span class="v">橡胶+EVA</span>
-                        </li>
-                        <li>
-                            <span class="t">鞋底:</span>
-                            <span class="v">橡胶+EVA</span>
-                        </li>
-                        <li>
-                            <span class="t">鞋底:</span>
-                            <span class="v">橡胶+EVA</span>
-                        </li>
+
                     </ul>
                 </div>
                 <div class="PD_goods_show_desc">
@@ -728,3 +668,95 @@
     </footer>
 </body>
 </html>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script>
+    function getData() {
+        let goodsId = location.search.split("=")[1];
+        $.get("getGoodsInfo.php","goodsId="+goodsId,function(data){
+            showData(data);
+        },"json");
+    }
+
+    function showData(data){
+        let htmlstr01 = `
+            <h1 id="xiangqingye_goodsinfo_goodsname">${data.goodsName}</h1>
+            <div id="xiangqingye_goodsinfo_goodspromotion">
+                <a href="#">${data.goodsDesc}</a>
+            </div>
+            <div id="xiangqingye_goodsinfo_draw">参与抽奖，可再减5元</div>
+            <div id="xiangqingye_goodsinfo_pinkage">
+                <a href="#">全场满99包邮，部分地区除外</a>
+            </div>
+            <div id="xiangqingye_bargin_starting">
+                <div>${data.beiyong1}</div>
+                <div id="xiangqingye_activity_down">
+                    距离结束：<span>1天22小时</span><span>请尽快购买！</span>
+                </div>
+            </div>
+            <div class="xiangqingye_bgc_gray">
+                <span id="xiangqingye_goods_coding" class="font-gray">
+                    <span class="t">商品编码：</span>
+                    <span class="v">${data.goodsId}</span>
+                </span>
+                <span id="xiangqingye_goods_price">
+                    <div id="xiangqingye_goods_originalPrice" class="font-gray">
+                        <span class="t">吊牌价：</span>
+                        <span class="v">￥${data.beiyong2}</span>
+                    </div>
+                    <div id="xiangqingye_goods_currentPrice" class="font-gray">
+                        <span class="t">销售价：</span>
+                        <span class="v">￥${data.goodsName}</span>
+                    </div>
+                    <div id="xiangqingye_goods_specialPrice" class="font-gray">
+                        <span class="t">特价：</span>
+                        <span class="v">
+                            <span>￥</span>
+                            <span>${data.beiyong3}</span>
+                            <span> 潮流价</span>
+                        </span>
+                    </div>
+                </span>
+            </div>
+        `
+        let htmlstr02 = `
+            <li>
+                <span class="t">鞋底:</span>
+                <span class="v">${data.beiyong4}</span>
+            </li>
+            <li>
+                <span class="t">鞋底:</span>
+                <span class="v">${data.beiyong6}</span>
+            </li>
+            <li>
+                <span class="t">鞋底:</span>
+                <span class="v">${data.beiyong8}/span>
+            </li>
+            <li>
+                <span class="t">鞋底:</span>
+                <span class="v">${data.beiyong10}</span>
+            </li>
+            <li>
+                <span class="t">鞋底:</span>
+                <span class="v">${data.beiyong5}</span>
+            </li>
+            <li>
+                <span class="t">鞋底:</span>
+                <span class="v">${data.beiyong7}</span>
+            </li>
+            <li>
+                <span class="t">鞋底:</span>
+                <span class="v">${data.beiyong9}</span>
+            </li>
+            <li>
+                <span class="t">鞋底:</span>
+                <span class="v">${data.beiyong11}</span>
+            </li>
+        `
+        $("#xiangqingye_goodsinfo").html(htmlstr01);
+        $("#PD_description_spec").html(htmlstr02);
+    }
+
+    $(function(){
+        getData();
+    })
+</script>
