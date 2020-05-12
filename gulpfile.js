@@ -34,7 +34,7 @@ gulp.task("watchall", async () => {
             .pipe(gulp.dest("./dist/Lining/css"));
     });
     // 压缩js
-    gulp.watch("./src/js/*.js", async () => {
+    gulp.watch(["./src/js/*.js","!./src/js/jquery-1.8.3.min.js",,"!./src/js/jquery-3.2.1.min.js"], async () => {
         gulp.src("./src/js/*.js")
             .pipe(babel({
                 presets: ['@babel/env']

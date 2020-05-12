@@ -111,23 +111,7 @@
         <div class="xiangqingye_wrapper">
             <div id="xiangqingye_info" class="clear_fix">
                 <div class="xiangqingye_info_imgbox">
-                    <div class="tecLeftBar">
-                        <ul><li><img src="./images/f05c33c2c77484d02d7a36ac1e02331d.gif" alt=""></li></ul>
-                    </div>
-                    <div class="imgshowBar">
-                        <a href="#"><img src="./images/display_518962_1.jpg" alt=""></a>
-                    </div>
-                    <div class="imgbox_showImgBox">
-                        <ul>
-                            <li><div class="tb-selected"><a href="#"><img src="./images/thumb_display_518962_1.jpg" alt=""></a></div></li>
-                            <li><div class="tb-selected"><a href="#"><img src="./images/thumb_display_518962_1.jpg" alt=""></a></div></li>
-                            <li><div class="tb-selected"><a href="#"><img src="./images/thumb_display_518962_1.jpg" alt=""></a></div></li>
-                            <li><div class="tb-selected"><a href="#"><img src="./images/thumb_display_518962_1.jpg" alt=""></a></div></li>
-                            <li><div class="tb-selected"><a href="#"><img src="./images/thumb_display_518962_1.jpg" alt=""></a></div></li>
-                        </ul>
-                    </div>
-                    <div></div>
-                    <div class="imgbox_keyongjuan"></div>
+                    
                 </div>
                 <div class="xiangqingye_info_dotted"></div>
                 <div class="xiangqingye_info_jieshao">
@@ -701,16 +685,16 @@
                 <span id="xiangqingye_goods_price">
                     <div id="xiangqingye_goods_originalPrice" class="font-gray">
                         <span class="t">吊牌价：</span>
-                        <span class="v">￥${data.beiyong2}</span>
+                        <span class="v">${data.beiyong2}</span>
                     </div>
                     <div id="xiangqingye_goods_currentPrice" class="font-gray">
                         <span class="t">销售价：</span>
-                        <span class="v">￥${data.goodsName}</span>
+                        <span class="v">${data.goodsPrice}</span>
                     </div>
                     <div id="xiangqingye_goods_specialPrice" class="font-gray">
                         <span class="t">特价：</span>
                         <span class="v">
-                            <span>￥</span>
+                            <span></span>
                             <span>${data.beiyong3}</span>
                             <span> 潮流价</span>
                         </span>
@@ -722,15 +706,7 @@
             <li>
                 <span class="t">鞋底:</span>
                 <span class="v">${data.beiyong4}</span>
-            </li>
-            <li>
-                <span class="t">鞋底:</span>
-                <span class="v">${data.beiyong6}</span>
-            </li>
-            <li>
-                <span class="t">鞋底:</span>
-                <span class="v">${data.beiyong8}/span>
-            </li>
+            </li> 
             <li>
                 <span class="t">鞋底:</span>
                 <span class="v">${data.beiyong10}</span>
@@ -752,9 +728,32 @@
                 <span class="v">${data.beiyong11}</span>
             </li>
         `
+        let htmlstr03 = `
+            <div class="tecLeftBar">
+                <ul><li><img src="./images/f05c33c2c77484d02d7a36ac1e02331d.gif" alt=""></li></ul>
+            </div>
+            <div class="imgshowBar">
+                <a href="#"><img src="${data.goodsImg}" alt=""></a>
+            </div>
+            <div class="imgbox_showImgBox">
+                <ul>
+                    <li><div class="tb-selected"><a href="#"><img src="${data.goodsImg}" alt=""></a></div></li>
+                    <li><div class="tb-selected"><a href="#"><img src="${data.goodsImg}" alt=""></a></div></li>
+                    <li><div class="tb-selected"><a href="#"><img src="${data.goodsImg}" alt=""></a></div></li>
+                    <li><div class="tb-selected"><a href="#"><img src="${data.goodsImg}" alt=""></a></div></li>
+                    <li><div class="tb-selected"><a href="#"><img src="${data.goodsImg}" alt=""></a></div></li>
+                </ul>
+            </div>
+            <div></div>
+        `
         $("#xiangqingye_goodsinfo").html(htmlstr01);
         $("#PD_description_spec").html(htmlstr02);
+        $(".xiangqingye_info_imgbox").html(htmlstr03);
     }
+
+
+
+    
 
     $(function(){
         getData();
